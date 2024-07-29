@@ -10,15 +10,31 @@ namespace Laboratorio_1_parte_1
     {
         static double precio = 0, total=0;
         static string nombre = "";
+        static double resultado= 0;
 
         static void Main(string[] args)
         {
+            do
+            {
+                try
+                {
+                    SolicitarDatos();
+                    CalcularTotal(precio);
+                    Console.WriteLine("Desaea aplicar un descuento?");
+                    string respuesta=Console.ReadLine
+
+                }
+                catch (FormatException)
+                {
+                    Console.WriteLine("No es una entrada válida, intente de nuevo.");
+                }
+            }while (true);
         }
         static void SolicitarDatos()
         {
             Console.Clear();
             Console.Write("Ingrese el nombre del producto: ");
-            string nombre = Console.ReadLine();
+            nombre = Console.ReadLine();
             Console.Write("Ingrese el precio del producto: Q");
             precio = double.Parse(nombre);
         }
@@ -26,12 +42,17 @@ namespace Laboratorio_1_parte_1
         {
             return total=+precio;
         }
-        static double Descuento(double total, double porcentaje)
+        static double Descuento(double total)
         {
             Console.Clear();
             Console.Write("Ingrese el descuento a aplicar (use unicamente valores enteros sin el simbolo de porcentaje): ");
-            double descuento=
+            double descuento=double.Parse(Console.ReadLine());
             return total - total * descuento;
+        }
+        static void MostarResultado(string Mensaje)
+        {
+            Console.Clear();
+            Console.WriteLine(Mensaje);
         }
     }
 }
