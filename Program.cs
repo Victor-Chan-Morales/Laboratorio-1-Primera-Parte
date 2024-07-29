@@ -34,7 +34,7 @@ namespace Laboratorio_1_parte_1
                     {
                         Console.WriteLine("No es una entrada válida, por lo que no se aplicará descueto");
                     }
-
+                    MostarResultado("El total a pagar es"+total);
 
                 }
                 catch (FormatException)
@@ -49,7 +49,7 @@ namespace Laboratorio_1_parte_1
             Console.Write("Ingrese el nombre del producto: ");
             nombre = Console.ReadLine();
             Console.Write("Ingrese el precio del producto: Q");
-            precio = double.Parse(nombre);
+            precio = double.Parse(Console.ReadLine());
         }
         static double CalcularTotal(double precio)
         {
