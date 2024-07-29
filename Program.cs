@@ -20,8 +20,21 @@ namespace Laboratorio_1_parte_1
                 {
                     SolicitarDatos();
                     CalcularTotal(precio);
-                    Console.WriteLine("Desaea aplicar un descuento?");
-                    string respuesta=Console.ReadLine
+                    Console.WriteLine("Desaea aplicar un descuento?S/N");
+                    string respuesta=Console.ReadLine();
+                    if (respuesta == "S")
+                    {
+                        Descuento(total);
+                    }
+                    else if (respuesta == "N")
+                    {
+                        Console.WriteLine("No se aplicará descuento");
+                    }
+                    else
+                    {
+                        Console.WriteLine("No es una entrada válida, por lo que no se aplicará descueto");
+                    }
+
 
                 }
                 catch (FormatException)
