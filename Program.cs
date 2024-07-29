@@ -34,7 +34,8 @@ namespace Laboratorio_1_parte_1
                     {
                         Console.WriteLine("No es una entrada válida, por lo que no se aplicará descueto");
                     }
-                    MostarResultado("El total a pagar es"+total);
+                    MostarResultado("El total a pagar es W"+total);
+                    Console.ReadKey();
 
                 }
                 catch (FormatException)
@@ -60,7 +61,7 @@ namespace Laboratorio_1_parte_1
             Console.Clear();
             Console.Write("Ingrese el descuento a aplicar (use unicamente valores enteros sin el simbolo de porcentaje): ");
             double descuento=double.Parse(Console.ReadLine());
-            return total - total * descuento;
+            return total - (total * descuento/100);
         }
         static void MostarResultado(string Mensaje)
         {
