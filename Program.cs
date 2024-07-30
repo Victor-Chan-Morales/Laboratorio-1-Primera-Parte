@@ -26,7 +26,7 @@ namespace Laboratorio_1_parte_1
                     Console.Write("Precio del prodcuto: Q ");
                     double precioProducto = double.Parse(Console.ReadLine());
                     listaPrecio.Add(precioProducto);
-                    Console.WriteLine("Producto registrado");
+                    Console.WriteLine("Producto registrado... clic");
                 }
                 else if (registrar == "N")
                 {
@@ -54,9 +54,12 @@ namespace Laboratorio_1_parte_1
         {
             if (ListaNombres.Count > 0)
             {
+                Console.WriteLine("PRODUCTOS REGISTRADOS:");
                 for (int i = 0; i < ListaNombres.Count; i++)
                 {
-                    Console.WriteLine($"Nombre del producto: {ListaNombres[i]}  Precio del producto: {listaPrecios[i]}");
+                    Console.WriteLine("----------------------------------------------------------------------------------");
+                    Console.WriteLine($"Nombre del producto: {ListaNombres[i]} -- Precio del producto: Q{listaPrecios[i]}");
+                    Console.WriteLine("----------------------------------------------------------------------------------");
                 }
             }
             else
@@ -70,7 +73,7 @@ namespace Laboratorio_1_parte_1
             {
                 Console.Write("Ingrese el descuento a aplciar, usar números enteros del 1 al 100 (0 si no aplica descuento): ");
                 double descuento = double.Parse(Console.ReadLine());
-                if (descuento > 0)
+                if (descuento >= 0)
                 {
                     double total = 0;
                     for (int i = 0; i < ListaPrecios.Count; i++)
@@ -93,7 +96,9 @@ namespace Laboratorio_1_parte_1
             {
                 try
                 {
-                    Console.WriteLine("Bienvenido a ElectroniK");
+                    Console.Clear();
+                    Console.WriteLine("Bienvenido a ElectroniK... clic para registrar producto...");
+                    Console.ReadKey(); 
                     RegistrarProducto();
                     MostrarProductos(listaNombre, listaPrecio);
                     totalProductos=CalcularTotal(listaPrecio);
