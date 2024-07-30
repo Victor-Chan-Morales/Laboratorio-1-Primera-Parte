@@ -116,7 +116,5 @@ namespace Laboratorio_1_parte_1
                 }
             }
         }
-
-
     }
 }
