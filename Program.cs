@@ -95,7 +95,14 @@ namespace Laboratorio_1_parte_1
                 {
                     Console.WriteLine("Bienvenido a ElectroniK");
                     RegistrarProducto();
-                    CalcularTotal(listaPrecio);
+                    MostrarProductos(listaNombre, listaPrecio);
+                    totalProductos=CalcularTotal(listaPrecio);
+                    Console.WriteLine("El subtotal es: Q"+totalProductos);
+                    totalProductos=AplicarDescuento(listaPrecio);
+                    Console.WriteLine("El total es: Q"+totalProductos);
+                    Console.WriteLine("Gracias por usar el sistema de registro de ventas...");
+                    Console.ReadKey();
+                    break;
                 }
                 catch (FormatException)
                 {
