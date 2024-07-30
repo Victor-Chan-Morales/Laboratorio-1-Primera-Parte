@@ -11,7 +11,8 @@ namespace Laboratorio_1_parte_1
         static double precio = 0, total=0;
         static string nombre = "";
         static double resultado= 0;
-
+        static List<string> ListaNombres= new List<string>();
+        static List<double> ListaPrecios= new List<double>();
         static void Main(string[] args)
         {
             do
@@ -34,7 +35,7 @@ namespace Laboratorio_1_parte_1
                     {
                         Console.WriteLine("No es una entrada válida, por lo que no se aplicará descueto");
                     }
-                    MostarResultado("El total a pagar es W"+total);
+                    MostarResultado("El total a pagar es W");
                     Console.ReadKey();
 
                 }
@@ -49,8 +50,10 @@ namespace Laboratorio_1_parte_1
             Console.Clear();
             Console.Write("Ingrese el nombre del producto: ");
             nombre = Console.ReadLine();
+            ListaNombres.Add(nombre);
             Console.Write("Ingrese el precio del producto: Q");
             precio = double.Parse(Console.ReadLine());
+            ListaPrecios.Add(precio);
         }
         static double CalcularTotal(double precio)
         {
