@@ -8,68 +8,101 @@ namespace Laboratorio_1_parte_1
 {
     internal class Program
     {
-        static double precio = 0, total=0;
-        static string nombre = "";
-        static double resultado= 0;
-        static List<string> ListaNombres= new List<string>();
-        static List<double> ListaPrecios= new List<double>();
+        static List<double> listaPrecio = new List<double>();
+        static List<string> listaNombre = new List<string>();
+        static double totalProductos = 0;
+        static void RegistrarProducto()
+        {
+            while (true)
+            {
+                Console.Clear();
+                Console.WriteLine("¿Desea registrar un producto? S/N");
+                string registrar = Console.ReadLine().ToUpper();
+                if (registrar == "S")
+                {
+                    Console.Write("Nombre del producto: ");
+                    string nombreProducto = Console.ReadLine().ToUpper();
+                    listaNombre.Add(nombreProducto);
+                    Console.Write("Precio del prodcuto: Q ");
+                    double precioProducto = double.Parse(Console.ReadLine());
+                    listaPrecio.Add(precioProducto);
+                    Console.WriteLine("Producto registrado");
+                }
+                else if (registrar == "N")
+                {
+                    Console.WriteLine("No se registrará ningún producto...");
+                    break;
+                }
+                else
+                {
+                    Console.WriteLine("Debe ingresar S o N");
+
+                }
+                Console.ReadKey();
+            }
+        }
+        static double CalcularTotal(List<double> Precios)
+        {
+            double total = 0;
+            foreach (double precio in listaPrecio)
+            {
+                total += precio;
+            }
+            return total;
+        }
+        static void MostrarProductos(List<string> ListaNombres)
+        {
+            if (ListaNombres.Count > 0)
+            {
+                for (int i = 0; i < listaNombre.Count; i++)
+                {
+                    Console.WriteLine($"Nombre del producto: {listaNombre[i]}  Precio del producto: {listaPrecio[i]}");
+                }
+            }
+            else
+            {
+                Console.WriteLine("No existe ningún producto registrado");
+            }
+        }
+        static double AplicarDescuento(List<double> ListaPrecios)
+        {
+            while (true)
+            {
+                Console.Write("Ingrese el descuento a aplciar, usar números enteros del 1 al 100 (0 si no aplica descuento): ");
+                double descuento = double.Parse(Console.ReadLine());
+                if (descuento > 0)
+                {
+                    double total = 0;
+                    for (int i = 0; i < ListaPrecios.Count; i++)
+                    {
+                        total += ListaPrecios[i];
+                    }
+                    return total - total * descuento;
+                    break;
+                }
+                else
+                {
+                    Console.WriteLine("No es un valor válido");
+                }
+                Console.ReadKey();
+            }
+        }
         static void Main(string[] args)
         {
-            do
+            while (true)
             {
                 try
                 {
-                    SolicitarDatos();
-                    CalcularTotal(precio);
-                    Console.WriteLine("Desaea aplicar un descuento?S/N");
-                    string respuesta=Console.ReadLine();
-                    if (respuesta == "S")
-                    {
-                        Descuento(total);
-                    }
-                    else if (respuesta == "N")
-                    {
-                        Console.WriteLine("No se aplicará descuento");
-                    }
-                    else
-                    {
-                        Console.WriteLine("No es una entrada válida, por lo que no se aplicará descueto");
-                    }
-                    MostarResultado("El total a pagar es W");
-                    Console.ReadKey();
-
+                    Console.WriteLine("Bienvenido a ElectroniK");
                 }
                 catch (FormatException)
                 {
-                    Console.WriteLine("No es una entrada válida, intente de nuevo.");
+                    Console.WriteLine("Error: ha ingresado un caracter inválido, por favor verifique sus entradas");
+                    Console.ReadKey();
                 }
-            }while (true);
+            }
         }
-        static void SolicitarDatos()
-        {
-            Console.Clear();
-            Console.Write("Ingrese el nombre del producto: ");
-            nombre = Console.ReadLine();
-            ListaNombres.Add(nombre);
-            Console.Write("Ingrese el precio del producto: Q");
-            precio = double.Parse(Console.ReadLine());
-            ListaPrecios.Add(precio);
-        }
-        static double CalcularTotal(double precio)
-        {
-            return total=+precio;
-        }
-        static double Descuento(double total)
-        {
-            Console.Clear();
-            Console.Write("Ingrese el descuento a aplicar (use unicamente valores enteros sin el simbolo de porcentaje): ");
-            double descuento=double.Parse(Console.ReadLine());
-            return total - (total * descuento/100);
-        }
-        static void MostarResultado(string Mensaje)
-        {
-            Console.Clear();
-            Console.WriteLine(Mensaje);
-        }
+
+
     }
 }
