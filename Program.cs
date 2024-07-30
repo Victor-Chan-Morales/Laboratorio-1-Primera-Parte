@@ -50,13 +50,13 @@ namespace Laboratorio_1_parte_1
             }
             return total;
         }
-        static void MostrarProductos(List<string> ListaNombres)
+        static void MostrarProductos(List<string> ListaNombres, List<double>listaPrecios)
         {
             if (ListaNombres.Count > 0)
             {
-                for (int i = 0; i < listaNombre.Count; i++)
+                for (int i = 0; i < ListaNombres.Count; i++)
                 {
-                    Console.WriteLine($"Nombre del producto: {listaNombre[i]}  Precio del producto: {listaPrecio[i]}");
+                    Console.WriteLine($"Nombre del producto: {ListaNombres[i]}  Precio del producto: {listaPrecios[i]}");
                 }
             }
             else
@@ -94,6 +94,8 @@ namespace Laboratorio_1_parte_1
                 try
                 {
                     Console.WriteLine("Bienvenido a ElectroniK");
+                    RegistrarProducto();
+                    CalcularTotal(listaPrecio);
                 }
                 catch (FormatException)
                 {
